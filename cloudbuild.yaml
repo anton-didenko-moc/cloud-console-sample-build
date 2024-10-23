@@ -24,7 +24,7 @@ steps:
 # image below and it will automatically be uploaded to Google Cloud Container
 # Registry.
 images:
-- 'gcr.io/$PROJECT_ID/helloworld-image'
+- 'europe-central2-docker.pkg.dev/pumple-and-kl-bot/helloworld-image'
 
 # You can organize your builds with tags
 tags: ['gcp-cloud-build-sample-build']
