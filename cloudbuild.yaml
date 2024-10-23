@@ -22,6 +22,11 @@ steps:
 - name: 'docker'
   args: ['build', '-t', 'europe-central2-docker.pkg.dev/$PROJECT_ID/helloworld-image/image:latest', '.']
 
+- name: 'docker'
+  args: ['push', 'europe-central2-docker.pkg.dev/$PROJECT_ID/helloworld-image/image:latest']
+
+- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+  args: ['run', 'deploy', 'pumple-and-kl-bot-cloudrun', '--image', 'europe-central2-docker.pkg.dev/$PROJECT_ID/helloworld-image/image:latest', '--region', 'europe-central2']
 # By default, all built docker images will be lost once the build is complete.
 # Rather than writing a build step to push this image, you can simply list the
 # image below and it will automatically be uploaded to Google Cloud Container
@@ -35,3 +40,4 @@ tags: ['gcp-cloud-build-sample-build']
 # You can configure more options than the ones listed here. Visit
 # https://cloud.google.com/cloud-build/docs/build-config to see the full list of
 # available options.
+
