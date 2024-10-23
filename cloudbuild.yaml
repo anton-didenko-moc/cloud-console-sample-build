@@ -16,7 +16,8 @@
 # repository as source. Here we use the 'docker' image to build the image and
 # tag it with the name of the image.
 options:
-  logging: CLOUD_LOGGING_ONLY
+  logging: GCS_ONLY
+  defaultLogsBucketBehavior: REGIONAL_USER_OWNED_BUCKET
 
 steps:
 - name: 'docker'
